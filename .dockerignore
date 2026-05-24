@@ -1,0 +1,21 @@
+# Dependencies
+node_modules
+npm-debug.log*
+
+# Next.js build output
+.next
+out
+
+# Git
+.git
+.gitignore
+
+# Dev / editor
+.env*.local
+.vscode
+.idea
+*.md
+
+# OS
+.DS_Store
+Thumbs.db

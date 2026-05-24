@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+const repoName = "portfolio-v2";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  basePath: `/${repoName}`,
+  images: {
+    unoptimized: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

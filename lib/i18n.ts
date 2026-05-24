@@ -31,8 +31,6 @@ export const translations = {
       p2: "Basé à Lyon · +33 6 52 23 52 00 · Disponible.",
       cta: "Travaillons ensemble →",
       stats: [
-        { value: "5+", label: "Années d'expérience" },
-        { value: "2", label: "Entreprises clientes" },
         { value: "10+", label: "Technologies maîtrisées" },
         { value: "3", label: "Langues parlées" },
       ],

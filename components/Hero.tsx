@@ -81,7 +81,7 @@ export function Hero() {
             {[
               { icon: <Code2 size={18} />, label: "GitHub", href: "https://github.com/youcef1712" },
               { icon: <Globe size={18} />, label: "LinkedIn", href: "https://www.linkedin.com/in/youcef-bendra-006aa5314/" },
-              { icon: <Mail size={18} />, label: "Email", href: "mailto:walid.bendra.pro@gmail.com" },
+              { icon: <Mail size={18} />, label: "Email", href: "mailto:walasb2001@gmail.com" },
             ].map((s) => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                 style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "40px", height: "40px", borderRadius: "10px", border: "1px solid var(--border)", color: "var(--foreground-muted)", textDecoration: "none", transition: "all 0.2s ease", background: "var(--background-secondary)" }}

@@ -239,9 +239,7 @@ p1: "Étudiant en M1 MIAGE et développeur web Full Stack, je suis passionné pa
           icon: "◈",
           skills: [
             { name: "GitLab CI/CD", level: 93 },
-            { name: "System Validation", level: 95 },
-            { name: "Automated Testing", level: 92 },
-            { name: "Itest / Scripting", level: 85 },
+
           ],
         },
       ],

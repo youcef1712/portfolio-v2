@@ -4,7 +4,7 @@ import { useInView } from "@/hooks/useInView";
 import { ExternalLink, Code2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-function ProjectCard({ project, index }: { project: { title: string; description: string; tags: readonly string[]; accent: string }; index: number }) {
+function ProjectCard({ project, index }: { project: { title: string; description: string; tags: readonly string[]; accent: string ; link:string }; index: number }) {
   const { ref, inView } = useInView(0.1);
   return (
     <div ref={ref}
@@ -13,21 +13,45 @@ function ProjectCard({ project, index }: { project: { title: string; description
       onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; const g = e.currentTarget.querySelector(".card-gradient") as HTMLElement; if (g) g.style.opacity = "0"; }}>
       <div className="card-gradient" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: `linear-gradient(90deg, ${project.accent}, color-mix(in srgb, ${project.accent} 40%, transparent))`, opacity: 0, transition: "opacity 0.3s ease" }} />
 
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
-        <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: `color-mix(in srgb, ${project.accent} 15%, transparent)`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: project.accent, opacity: 0.8 }} />
-        </div>
-        <div style={{ display: "flex", gap: "8px" }}>
-          {[{ icon: <Code2 size={14} />, label: "Code" }, { icon: <ExternalLink size={14} />, label: "Live" }].map((btn) => (
-            <button key={btn.label} aria-label={btn.label}
-              style={{ padding: "6px", borderRadius: "8px", border: "1px solid var(--border)", background: "transparent", color: "var(--foreground-muted)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s ease" }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = project.accent; e.currentTarget.style.color = project.accent; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--foreground-muted)"; }}>
-              {btn.icon}
-            </button>
-          ))}
-        </div>
-      </div>
+   <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "12px" }}>
+  <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: `color-mix(in srgb, ${project.accent} 15%, transparent)`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+    <div style={{ width: "16px", height: "16px", borderRadius: "4px", background: project.accent, opacity: 0.8 }} />
+  </div>
+
+  <div style={{ display: "flex", gap: "8px" }}>
+    {project.link && (
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Code"
+        style={{
+          padding: "6px",
+          borderRadius: "8px",
+          border: "1px solid var(--border)",
+          background: "transparent",
+          color: "var(--foreground-muted)",
+          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.2s ease",
+          textDecoration: "none",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = project.accent;
+          e.currentTarget.style.color = project.accent;
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "var(--border)";
+          e.currentTarget.style.color = "var(--foreground-muted)";
+        }}
+      >
+        <Code2 size={14} />
+      </a>
+    )}
+  </div>
+</div>
 
       <div>
         <h3 style={{ fontSize: "17px", fontWeight: 700, color: "var(--foreground)", marginBottom: "8px", letterSpacing: "-0.3px" }}>{project.title}</h3>

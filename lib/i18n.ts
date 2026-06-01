@@ -63,8 +63,7 @@ export const translations = {
           skills: [
             { name: "Linux / Bash", level: 88 },
             { name: "Docker / Swarm", level: 85 },
-            { name: "Réseau / IP MPLS", level: 80 },
-            { name: "Cybersécurité", level: 75 },
+
           ],
         },
         {
@@ -172,150 +171,181 @@ export const translations = {
   },
 
   en: {
-    // Navbar
-    nav: {
-      about: "About",
-      skills: "Skills",
-      projects: "Projects",
-      contact: "Contact",
-    },
-    // Hero
-    hero: {
-      available: "Available for new projects",
-      title: "Youcef Bendra",
-      subtitle1: "AI Automation Engineer",
-      sep: "×",
-      subtitle2: "V&V Engineer & Embedded Systems",
-      description: "Étudiant en M1 MIAGE passionné par le développement web, je recherche une alternance en développement Full Stack afin de renforcer mes compétences et participer à des projets concrets en entreprise.",
-      cta_projects: "View my projects",
-      cta_contact: "Contact me",
-      scroll: "Scroll",
-    },
-    // About
-    about: {
-      tag: "About",
-      heading1: "Versatile & passionate about",
-      heading2: "complex technical",
-      heading3: "challenges",
-p1: "Étudiant en M1 MIAGE et développeur web Full Stack, je suis passionné par la création d’applications modernes et performantes. J’aime relever des défis techniques, apprendre de nouvelles technologies et concevoir des solutions utiles à travers des projets concrets.",      p2: "Based in Lyon · +33 6 52 23 52 00 · Available for freelance missions and full-time opportunities.",
-      cta: "Let's work together →",
-      stats: [
-        { value: "10+", label: "Technologies mastered" },
-        { value: "3", label: "Languages spoken" },
-      ],
-    },
-    // Experience
-   
-    // Skills
-    skills: {
-      tag: "Skills",
-      heading: "Tech stack",
-      categories: [
-        {
-          category: "Development",
-          icon: "⬡",
-          skills: [
-            { name: 'Angular',  level: 90 },
-            { name: 'Spring Boot',  level: 70 },
-            { name: 'Java',  level: 85 },
-            { name: 'JavaScript',  level: 85 },
-            { name: 'C# / .NET / MonoGame',  level: 70 },
-            { name: 'Python', level: 70 },
-            { name: 'PHP / MySQL',  level: 70 },
-            { name: 'HTML / CSS / Bootstrap', level: 85 },
-            { name: 'XML, XSD, XSLT',  level: 70 },
-          ],
-        },
-        {
-          category: "Methodologie",
-          icon: "⬢",
-          skills: [
-            { name: 'Slack, Jira', level: 70 },
-            { name: 'Méthodologie Agile', level: 75 },
-          ],
-        },
-        {
-          category: "Tools ",
-          icon: "◈",
-          skills: [
-            { name: "GitLab CI/CD", level: 93 },
+  // Navbar
+  nav: {
+    about: "About",
+    skills: "Skills",
+    projects: "Projects",
+    contact: "Contact",
+  },
 
-          ],
-        },
-      ],
-    },
-    // Projects
-    projects: {
-      tag: "Work",
-      heading: "My projects",
-      items: [
-        {
-          title: "V&V Automation & CI/CD",
-          description: "Built an automated test framework and GitLab CI/CD pipelines to validate ALSTOM railway subsystems — from automatic execution to report generation.",
-          tags: ["Python", "GitLab CI/CD", "Docker", "Itest"],
-          accent: "var(--accent)",
-        },
-        {
-          title: "NMS Backend — WiFi Modems",
-          description: "Django backend for centralised configuration of WiFi modems running OpenWRT, with semi-automatic NMS deployment.",
-          tags: ["Django", "Python", "OpenWRT", "Linux"],
-          accent: "#8b5cf6",
-        },
-        {
-          title: "Log Injection Script",
-          description: "Python tool for extracting and injecting data from log files into a relational database.",
-          tags: ["Python", "SQL", "Bash", "ETL"],
-          accent: "#0ea5e9",
-        },
-        {
-          title: "Embedded Mesh/Access Module",
-          description: "Development of parallel Mesh/Access modules in C/C++ with advanced shared library management.",
-          tags: ["C/C++", "Embedded", "Linux", "Network"],
-          accent: "#10b981",
-        },
-        {
-          title: "IP MPLS Architecture Validation",
-          description: "Compliance testing and IP MPLS network architecture validation for critical railway equipment.",
-          tags: ["IP MPLS", "Network", "Testing", "Cybersecurity"],
-          accent: "#f59e0b",
-        },
-        {
-          title: "Hardware Prototypes",
-          description: "Hardware modification and electronic prototype building to study improvement possibilities (Oscilloscope, Soldering, Datasheets).",
-          tags: ["Hardware", "Electronics", "Oscilloscope", "Prototyping"],
-          accent: "#ec4899",
-        },
-      ],
-    },
-    // Contact
-    contact: {
-      tag: "Contact",
-      heading: "Let's work together",
-      subheading: "“I’m currently looking for a work-study (apprenticeship) opportunity and open to collaboration.”.",
-      email_label: "Email",
-      location_label: "Location",
-      location_value: "45 Av. Georges Pompidou, 69003 Lyon, France",
-      github: "GitHub",
-      linkedin: "LinkedIn",
-      form: {
-        name: "Name",
-        name_placeholder: "Your name",
-        email: "Email",
-        email_placeholder: "your@email.com",
-        message: "Message",
-        message_placeholder: "Describe your project or the opportunity...",
-        submit: "Send message",
-        sending: "Sending...",
-        success_title: "Message sent!",
-        success_msg: "I will get back to you as soon as possible.",
+  // Hero
+  hero: {
+    available: "Available for an apprenticeship",
+    title: "Youcef Bendra",
+    subtitle1: "Full Stack Developer",
+    sep: "×",
+    subtitle2: "Student",
+    description:
+      "Passionate about web development and new technologies, I design modern, performant and intuitive applications. Currently looking for an apprenticeship to develop my skills on real projects.",
+    cta_projects: "View my projects",
+    cta_contact: "Contact me",
+    scroll: "Discover",
+  },
+
+  // About
+  about: {
+    tag: "About",
+    heading1: "Versatile & passionate about",
+    heading2: "technical challenges",
+    p1:
+      "Computer science student specializing in web and software development, with experience on Full Stack projects using Angular, Spring Boot, JavaScript and REST APIs. Passionate about building modern applications, automating processes and continuously improving technical solutions. Curious, versatile and motivated by technical challenges and continuous learning.",
+    p2: "Based in Lyon · +33 6 52 23 52 00 · Available.",
+    cta: "Let's work together →",
+    stats: [
+      { value: "10+", label: "Technologies mastered" },
+      { value: "3", label: "Languages spoken" },
+    ],
+  },
+
+  // Skills
+  skills: {
+    tag: "Skills",
+    heading: "Tech stack",
+    categories: [
+      {
+        category: "Development",
+        icon: "⬡",
+        skills: [
+          { name: "Angular", level: 90 },
+          { name: "Spring Boot", level: 70 },
+          { name: "Java", level: 85 },
+          { name: "JavaScript", level: 85 },
+          { name: "C# / .NET / MonoGame", level: 70 },
+          { name: "Python", level: 70 },
+          { name: "PHP / MySQL", level: 70 },
+          { name: "HTML / CSS / Bootstrap", level: 85 },
+          { name: "XML, XSD, XSLT", level: 70 },
+        ],
       },
-    },
-    // Footer
-    footer: {
-      copy: "Designed and built with passion.",
-      back_top: "↑ Back to top",
+      {
+        category: "System & Network",
+        icon: "⬢",
+        skills: [
+          { name: "Linux / Bash", level: 88 },
+          { name: "Docker / Swarm", level: 85 },
+ 
+        ],
+      },
+      {
+        category: "Tools & Methods",
+        icon: "◈",
+        skills: [
+          { name: "GitLab CI/CD", level: 93 },
+          { name: "System Validation", level: 95 },
+          { name: "Automated Testing", level: 92 },
+          { name: "Slack, Jira", level: 70 },
+          { name: "Agile methodology", level: 75 },
+        ],
+      },
+    ],
+  },
+
+  // Projects
+  projects: {
+    tag: "Work",
+    heading: "My projects",
+    items: [
+      {
+        title: "Tour planning application",
+        description:
+          "Web application for map visualization and automatic route planning optimization (distance, duration, cost), with selection of orders, trucks and teams. Project built using agile methodology (sprints, client feedback).",
+        tags: ["Angular", "Spring Boot", "PostgreSQL", "Agile"],
+        link: "https://github.com/youcef1712/Projet-Integrateur",
+        accent: "var(--accent)",
+      },
+      {
+        title: "Video game development",
+        description:
+          "Development of a game using C# and MonoGame framework. Data management using XML, XSD, XSLT, and collaboration with Slack, Jira and Git.",
+        tags: ["C#", ".NET", "MonoGame", "XML", "Git", "Jira"],
+        link: "https://github.com/youcef1712/pacman",
+        accent: "#8b5cf6",
+      },
+      {
+        title: "C Robot – Obstacle detection",
+        description:
+          "Creation of a robot moving on a map and detecting obstacles. Functional and robustness testing.",
+        tags: ["C", "Algorithms", "Testing"],
+        link: "https://github.com/youcef1712/Projet_robot_curiosity",
+        accent: "#0ea5e9",
+      },
+      {
+        title: "Burger Code Website",
+        description:
+          "Self-learning website built using PHP, MySQL, CSS, Bootstrap and jQuery. Full front-end integration and database management.",
+        tags: ["PHP", "MySQL", "Bootstrap", "jQuery"],
+        link: "https://github.com/youcef1712/Site_burger",
+        accent: "#10b981",
+      },
+      {
+        title: "Chinese checkers",
+        description:
+          "OCaml program simulating a strategy game on a hexagonal board.",
+        tags: ["OCaml"],
+        link: "https://github.com/youcef1712/dame_chinoise",
+        accent: "#f59e0b",
+      },
+      {
+        title: "Angular Portfolio",
+        description:
+          "This personal portfolio developed with Angular showcases my background, projects and skills.",
+        tags: ["Angular", "TypeScript", "SCSS"],
+        link: "https://github.com/youcefbendra/portfolio-angular",
+        accent: "#ec4899",
+      },
+      {
+        title: "PHP Form",
+        description:
+          "Modern contact form allowing users to send a message with validation.",
+        tags: ["PHP", "JavaScript", "CSS"],
+        link: "https://github.com/youcef1712/Formulaire-php",
+        accent: "#fd6c9e",
+      },
+    ],
+  },
+
+  // Contact
+  contact: {
+    tag: "Contact",
+    heading: "Let's work together",
+    subheading:
+      "A project in mind? I am available for collaboration opportunities.",
+    email_label: "Email",
+    location_label: "Location",
+    location_value: "45 Av. Georges Pompidou, 69003 Lyon",
+    github: "GitHub",
+    linkedin: "LinkedIn",
+    form: {
+      name: "Name",
+      name_placeholder: "Your name",
+      email: "Email",
+      email_placeholder: "your@email.com",
+      message: "Message",
+      message_placeholder: "Describe your project...",
+      submit: "Send message",
+      sending: "Sending...",
+      success_title: "Message sent!",
+      success_msg: "I will reply as soon as possible.",
     },
   },
+
+  // Footer
+  footer: {
+    copy: "Designed and developed with passion.",
+    back_top: "↑ Back to top",
+  },
+},
 } as const;
 
 export type Translations = typeof translations.fr;

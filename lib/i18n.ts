@@ -11,13 +11,13 @@ export const translations = {
     },
     // Hero
   hero: {
-  available: "Disponible pour une alternance",
+  available: "Disponible ",
   title: "Youcef Bendra",
   subtitle1: "Développeur Full Stack",
   sep: "×",
   subtitle2: "Étudiant",
   description:
-    "Passionné par le développement web et les nouvelles technologies, je conçois des applications modernes, performantes et intuitives. Actuellement à la recherche d’une alternance afin de développer mes compétences sur des projets concrets.",
+    "Passionné par le développement web et les nouvelles technologies, je conçois des applications modernes, performantes et intuitives. Actuellement à la recherche d’une oportunite afin de développer mes compétences sur des projets concrets.",
   cta_projects: "Voir mes projets",
   cta_contact: "Me contacter",
   scroll: "Découvrir",
@@ -181,13 +181,13 @@ export const translations = {
 
   // Hero
   hero: {
-    available: "Available for an apprenticeship",
+    available: "Available",
     title: "Youcef Bendra",
     subtitle1: "Full Stack Developer",
     sep: "×",
     subtitle2: "Student",
     description:
-      "Passionate about web development and new technologies, I design modern, performant and intuitive applications. Currently looking for an apprenticeship to develop my skills on real projects.",
+      "Passionate about web development and new technologies, I design modern, performant and intuitive applications. Currently looking for an oppotunity to develop my skills on real projects.",
     cta_projects: "View my projects",
     cta_contact: "Contact me",
     scroll: "Discover",

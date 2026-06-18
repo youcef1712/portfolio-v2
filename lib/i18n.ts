@@ -324,8 +324,8 @@ export const translations = {
           category: "Tools & Methods",
           icon: "◈",
           skills: [
-            { name: "Git / CI/CD", level: 93 },
-            { name: "Automated Testing", level: 92 },
+            { name: "Git / CI/CD", level: 40 },
+            { name: "Automated Testing", level: 40 },
             { name: "Slack / Jira", level: 75 },
             { name: "Agile Methodology", level: 80 },
             { name: "UML / Modeling", level: 75 },

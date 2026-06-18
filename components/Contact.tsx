@@ -10,12 +10,41 @@ export function Contact() {
   const { t } = useLanguage();
   const { contact } = t;
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const WEB3FORMS_KEY = "e7271950-9417-4bf8-a344-79a50ae0d86d";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => setStatus("sent"), 1500);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          from_name: "Portfolio Contact",
+          subject: `Nouveau message de ${formState.name}`,
+        }),
+      });
+
+      const data = await res.json();
+      console.log("Web3Forms response:", data);
+      if (data.success) {
+        setStatus("sent");
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        console.error("Web3Forms error:", data);
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      setStatus("error");
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -163,6 +192,42 @@ export function Contact() {
                 </div>
                 <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--foreground)", marginBottom: "8px" }}>{contact.form.success_title}</h3>
                 <p style={{ fontSize: "14px", color: "var(--foreground-muted)" }}>{contact.form.success_msg}</p>
+              </div>
+            ) : status === "error" ? (
+              <div style={{ textAlign: "center", padding: "40px 0" }}>
+                <div style={{
+                  width: "68px",
+                  height: "68px",
+                  borderRadius: "50%",
+                  background: "color-mix(in srgb, var(--accent) 10%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--accent) 25%, transparent)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 16px",
+                  fontSize: "28px",
+                  color: "var(--accent)",
+                }}>
+                  ✕
+                </div>
+                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--foreground)", marginBottom: "8px" }}>{contact.form.error_title}</h3>
+                <p style={{ fontSize: "14px", color: "var(--foreground-muted)", marginBottom: "20px" }}>{contact.form.error_msg}</p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  style={{
+                    padding: "10px 24px",
+                    borderRadius: "10px",
+                    background: "var(--accent)",
+                    color: "#ffffff",
+                    border: "none",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.25s ease",
+                  }}
+                >
+                  Réessayer
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>

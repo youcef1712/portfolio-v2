@@ -203,6 +203,8 @@ export const translations = {
         sending: "Envoi en cours...",
         success_title: "Message envoyé !",
         success_msg: "Je vous répondrai dans les plus brefs délais.",
+        error_title: "Erreur d'envoi",
+        error_msg: "Une erreur est survenue. Réessayez ou contactez-moi directement par email.",
       },
     },
     footer: {
@@ -414,6 +416,8 @@ export const translations = {
         sending: "Sending...",
         success_title: "Message sent!",
         success_msg: "I will reply as soon as possible.",
+        error_title: "Sending failed",
+        error_msg: "Something went wrong. Please try again or contact me directly by email.",
       },
     },
     footer: {

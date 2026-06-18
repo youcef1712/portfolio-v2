@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState, useMemo } from "react";
 import { useInView } from "@/hooks/useInView";
 import { Code2 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -145,13 +145,24 @@ export function Projects() {
   const { ref: headerRef, inView: headerInView } = useInView();
   const { t } = useLanguage();
   const { projects } = t;
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
+    projects.items.forEach((p) => p.tags.forEach((tag) => tags.add(tag)));
+    return Array.from(tags);
+  }, [projects.items]);
+
+  const filtered = activeTag
+    ? projects.items.filter((p) => (p.tags as readonly string[]).includes(activeTag))
+    : projects.items;
 
   return (
     <section id="projects" style={{ padding: "120px 24px", background: "var(--background-secondary)", position: "relative" }}>
       <div className="noise-overlay" />
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         <div ref={headerRef} style={{
-          textAlign: "center", marginBottom: "64px",
+          textAlign: "center", marginBottom: "40px",
           opacity: headerInView ? 1 : 0, transform: headerInView ? "translateY(0)" : "translateY(24px)",
           transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}>
@@ -164,8 +175,39 @@ export function Projects() {
             {projects.heading}<span style={{ color: "var(--accent)" }}>.</span>
           </h2>
         </div>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "40px" }}>
+          <button
+            onClick={() => setActiveTag(null)}
+            style={{
+              padding: "6px 16px", borderRadius: "100px", fontSize: "12px", fontWeight: 600,
+              border: "1px solid", cursor: "pointer", transition: "all 0.25s ease",
+              background: activeTag === null ? "var(--accent)" : "transparent",
+              color: activeTag === null ? "#fff" : "var(--foreground-muted)",
+              borderColor: activeTag === null ? "var(--accent)" : "var(--border)",
+            }}
+          >
+            Tous
+          </button>
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+              style={{
+                padding: "6px 16px", borderRadius: "100px", fontSize: "12px", fontWeight: 600,
+                border: "1px solid", cursor: "pointer", transition: "all 0.25s ease",
+                background: activeTag === tag ? "var(--accent)" : "transparent",
+                color: activeTag === tag ? "#fff" : "var(--foreground-muted)",
+                borderColor: activeTag === tag ? "var(--accent)" : "var(--border)",
+              }}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+
         <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
-          {projects.items.map((p, i) => (
+          {filtered.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
         </div>

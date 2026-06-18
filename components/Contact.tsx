@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useInView } from "@/hooks/useInView";
 import { Mail, MapPin, Send, Code2, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Confetti } from "@/components/Confetti";
 
 export function Contact() {
   const { ref, inView } = useInView();
@@ -69,6 +70,7 @@ export function Contact() {
 
   return (
     <section id="contact" style={{ padding: "120px 24px", background: "var(--background)", position: "relative" }}>
+      <Confetti active={status === "sent"} />
       <div className="noise-overlay" />
       <div ref={ref} style={{ maxWidth: "900px", margin: "0 auto", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(32px)", transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 

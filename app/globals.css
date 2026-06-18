@@ -211,6 +211,22 @@ body {
   50% { opacity: 0; }
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes confetti-fall {
+  0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+  100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+}
+
+@keyframes easter-egg-pop {
+  0% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+  60% { transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
 .animate-shimmer {
   background: linear-gradient(
     90deg,
@@ -228,6 +244,11 @@ body {
 /* Smooth link transitions */
 a {
   transition: color 0.2s ease;
+}
+
+/* Skip to content */
+.skip-to-content:focus {
+  top: 16px !important;
 }
 
 /* Focus visible ring */

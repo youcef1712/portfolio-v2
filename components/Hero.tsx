@@ -100,7 +100,17 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
           style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}
         >
-          <div style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
+          <div
+            style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", transition: "transform 0.2s ease" }}
+            onMouseMove={(e) => {
+              if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return;
+              const rect = e.currentTarget.getBoundingClientRect();
+              const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+              const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+              e.currentTarget.style.transform = `perspective(600px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+            }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg)"; }}
+          >
             <div className="hero-ring" style={{ position: "absolute", width: "310px", height: "310px", borderRadius: "50%", border: "1.5px dashed color-mix(in srgb, var(--accent) 25%, transparent)", animation: "spinSlow 30s linear infinite" }} />
             <div style={{ position: "absolute", width: "290px", height: "290px", borderRadius: "50%", background: "conic-gradient(from 0deg, var(--accent), color-mix(in srgb, var(--accent) 12%, transparent) 60%, var(--accent))", padding: "2px" }}>
               <div style={{ width: "100%", height: "100%", borderRadius: "50%", background: "var(--background)" }} />

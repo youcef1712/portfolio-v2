@@ -68,6 +68,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="alternate" hrefLang="fr" href="https://youcefbendra.dev" />
+        <link rel="alternate" hrefLang="en" href="https://youcefbendra.dev" />
+        <link rel="alternate" hrefLang="x-default" href="https://youcefbendra.dev" />
+      </head>
       <body className="min-h-screen antialiased">
         <script
           type="application/ld+json"
@@ -98,6 +103,11 @@ export default function RootLayout({
                 "Git",
               ],
             }),
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if("serviceWorker"in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("/sw.js")})}`,
           }}
         />
         <ThemeProvider>

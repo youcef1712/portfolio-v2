@@ -89,7 +89,7 @@ function AvatarPlaceholder() {
               color: "var(--accent)",
             }}
           >
-            WB
+            YB
           </span>
         </div>
 

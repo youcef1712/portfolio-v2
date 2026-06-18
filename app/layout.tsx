@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { Preloader } from "@/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Youcef Bendra — Developpeur Web",
-  description: "Étudiant en M1 MIAGE passionné par le développement web, je recherche une alternance en développement Full Stack afin de renforcer mes compétences et participer à des projets concrets en entreprise."
+  title: "Youcef Bendra — Développeur Full Stack",
+  description:
+    "Portfolio de Youcef Bendra, développeur Full Stack passionné. Angular, Spring Boot, Java, JavaScript et plus.",
+  keywords: [
+    "Youcef Bendra",
+    "développeur",
+    "full stack",
+    "portfolio",
+    "Angular",
+    "Spring Boot",
+    "Lyon",
+  ],
+  authors: [{ name: "Youcef Bendra" }],
+  openGraph: {
+    title: "Youcef Bendra — Développeur Full Stack",
+    description:
+      "Portfolio de Youcef Bendra, développeur Full Stack passionné basé à Lyon.",
+    type: "website",
+    locale: "fr_FR",
+  },
 };
 
 export default function RootLayout({
@@ -32,7 +51,10 @@ export default function RootLayout({
     >
       <body className="min-h-screen antialiased">
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <Preloader />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

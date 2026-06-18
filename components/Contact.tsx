@@ -19,13 +19,20 @@ export function Contact() {
   };
 
   const inputStyle: React.CSSProperties = {
-    width: "100%", padding: "12px 16px", borderRadius: "10px", border: "1px solid var(--border)",
-    background: "var(--background-secondary)", color: "var(--foreground)", fontSize: "15px",
-    outline: "none", transition: "border-color 0.2s ease", fontFamily: "inherit",
+    width: "100%",
+    padding: "13px 16px",
+    borderRadius: "12px",
+    border: "1px solid var(--border)",
+    background: "var(--background)",
+    color: "var(--foreground)",
+    fontSize: "15px",
+    outline: "none",
+    transition: "all 0.25s ease",
+    fontFamily: "inherit",
   };
 
   const infoItems = [
-    { icon: <Mail size={18} />, label: contact.email_label, value: "walasb2001@gmail.com" },
+    { icon: <Mail size={18} />, label: contact.email_label, value: "proetuyoucef@gmail.com" },
     { icon: <MapPin size={18} />, label: contact.location_label, value: contact.location_value },
   ];
 
@@ -35,8 +42,9 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" style={{ padding: "120px 24px", background: "var(--background)" }}>
-      <div ref={ref} style={{ maxWidth: "900px", margin: "0 auto", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(32px)", transition: "all 0.7s ease" }}>
+    <section id="contact" style={{ padding: "120px 24px", background: "var(--background)", position: "relative" }}>
+      <div className="noise-overlay" />
+      <div ref={ref} style={{ maxWidth: "900px", margin: "0 auto", opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(32px)", transition: "all 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", justifyContent: "center", marginBottom: "16px" }}>
@@ -56,10 +64,28 @@ export function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {infoItems.map((item) => (
               <div key={item.label}
-                style={{ display: "flex", alignItems: "flex-start", gap: "16px", padding: "20px", borderRadius: "12px", border: "1px solid var(--border)", background: "var(--background-secondary)", transition: "all 0.2s ease" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}>
-                <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "color-mix(in srgb, var(--accent) 12%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", flexShrink: 0 }}>
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "16px",
+                  padding: "20px",
+                  borderRadius: "14px",
+                  border: "1px solid var(--border)",
+                  background: "var(--background-secondary)",
+                  transition: "all 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--accent)";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "var(--card-glow-hover)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--border)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "color-mix(in srgb, var(--accent) 10%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--accent)", flexShrink: 0 }}>
                   {item.icon}
                 </div>
                 <div>
@@ -72,57 +98,151 @@ export function Contact() {
             <div style={{ display: "flex", gap: "12px" }}>
               {socialItems.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                  style={{ flex: 1, padding: "12px", borderRadius: "10px", border: "1px solid var(--border)", background: "var(--background-secondary)", color: "var(--foreground-muted)", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: "14px", fontWeight: 500, transition: "all 0.2s ease" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; e.currentTarget.style.color = "var(--foreground-muted)"; }}>
+                  style={{
+                    flex: 1,
+                    padding: "12px",
+                    borderRadius: "12px",
+                    border: "1px solid var(--border)",
+                    background: "var(--background-secondary)",
+                    color: "var(--foreground-muted)",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    transition: "all 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                    e.currentTarget.style.color = "var(--accent)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.background = "color-mix(in srgb, var(--accent) 5%, transparent)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--border)";
+                    e.currentTarget.style.color = "var(--foreground-muted)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.background = "var(--background-secondary)";
+                  }}
+                >
                   {s.icon}<span>{s.label}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          <div style={{ padding: "36px", borderRadius: "16px", border: "1px solid var(--border)", background: "var(--background-secondary)" }}>
+          <div style={{ padding: "36px", borderRadius: "18px", border: "1px solid var(--border)", background: "var(--background-secondary)", position: "relative", overflow: "hidden" }}>
+            <div style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "2px",
+              background: "linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent))",
+              opacity: 0.5,
+            }} />
+
             {status === "sent" ? (
               <div style={{ textAlign: "center", padding: "40px 0" }}>
-                <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "color-mix(in srgb, #22c55e 12%, transparent)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", fontSize: "28px", color: "#22c55e" }}>✓</div>
+                <div style={{
+                  width: "68px",
+                  height: "68px",
+                  borderRadius: "50%",
+                  background: "color-mix(in srgb, #22c55e 10%, transparent)",
+                  border: "1px solid color-mix(in srgb, #22c55e 25%, transparent)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 16px",
+                  fontSize: "28px",
+                  color: "#22c55e",
+                }}>
+                  ✓
+                </div>
                 <h3 style={{ fontSize: "18px", fontWeight: 700, color: "var(--foreground)", marginBottom: "8px" }}>{contact.form.success_title}</h3>
                 <p style={{ fontSize: "14px", color: "var(--foreground-muted)" }}>{contact.form.success_msg}</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div className="form-row" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   {[
                     { key: "name", label: contact.form.name, placeholder: contact.form.name_placeholder, type: "text" },
                     { key: "email", label: contact.form.email, placeholder: contact.form.email_placeholder, type: "email" },
                   ].map((field) => (
                     <div key={field.key}>
-                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--foreground-secondary)", marginBottom: "6px" }}>{field.label}</label>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--foreground-secondary)", marginBottom: "8px" }}>{field.label}</label>
                       <input type={field.type} placeholder={field.placeholder} required
                         value={formState[field.key as "name" | "email"]}
                         onChange={(e) => setFormState({ ...formState, [field.key]: e.target.value })}
                         style={inputStyle}
-                        onFocus={(e) => { e.target.style.borderColor = "var(--accent)"; }}
-                        onBlur={(e) => { e.target.style.borderColor = "var(--border)"; }} />
+                        onFocus={(e) => {
+                          e.target.style.borderColor = "var(--accent)";
+                          e.target.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent)";
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = "var(--border)";
+                          e.target.style.boxShadow = "none";
+                        }}
+                      />
                     </div>
                   ))}
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--foreground-secondary)", marginBottom: "6px" }}>{contact.form.message}</label>
+                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--foreground-secondary)", marginBottom: "8px" }}>{contact.form.message}</label>
                   <textarea placeholder={contact.form.message_placeholder} required rows={5}
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    style={{ ...inputStyle, resize: "vertical", minHeight: "120px" }}
-                    onFocus={(e) => { e.target.style.borderColor = "var(--accent)"; }}
-                    onBlur={(e) => { e.target.style.borderColor = "var(--border)"; }} />
+                    style={{ ...inputStyle, resize: "vertical", minHeight: "130px" }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = "var(--accent)";
+                      e.target.style.boxShadow = "0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent)";
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = "var(--border)";
+                      e.target.style.boxShadow = "none";
+                    }}
+                  />
                 </div>
 
                 <button type="submit" disabled={status === "sending"}
-                  style={{ padding: "13px 24px", borderRadius: "10px", background: "var(--accent)", color: "#ffffff", border: "none", fontSize: "15px", fontWeight: 600, cursor: status === "sending" ? "not-allowed" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", transition: "all 0.2s ease", opacity: status === "sending" ? 0.7 : 1 }}
-                  onMouseEnter={(e) => { if (status !== "sending") { e.currentTarget.style.background = "var(--accent-hover)"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.transform = "translateY(0)"; }}>
+                  style={{
+                    padding: "14px 24px",
+                    borderRadius: "12px",
+                    background: "var(--accent)",
+                    color: "#ffffff",
+                    border: "none",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    cursor: status === "sending" ? "not-allowed" : "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    transition: "all 0.25s ease",
+                    opacity: status === "sending" ? 0.7 : 1,
+                    boxShadow: "0 4px 16px color-mix(in srgb, var(--accent) 25%, transparent)",
+                  }}
+                  onMouseEnter={(e) => {
+                    if (status !== "sending") {
+                      e.currentTarget.style.background = "var(--accent-hover)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                      e.currentTarget.style.boxShadow = "0 8px 28px color-mix(in srgb, var(--accent) 35%, transparent)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "var(--accent)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 4px 16px color-mix(in srgb, var(--accent) 25%, transparent)";
+                  }}
+                >
                   {status === "sending" ? (
-                    <><div style={{ width: "16px", height: "16px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#fff", animation: "spin 0.6s linear infinite" }} />{contact.form.sending}</>
+                    <>
+                      <div style={{ width: "16px", height: "16px", borderRadius: "50%", border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "#fff", animation: "spin 0.6s linear infinite" }} />
+                      {contact.form.sending}
+                    </>
                   ) : (
                     <><Send size={16} />{contact.form.submit}</>
                   )}

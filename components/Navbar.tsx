@@ -28,9 +28,8 @@ export function Navbar() {
   ];
 
   const updateIndicator = useCallback(() => {
-    const activeIdx = navLinks.findIndex(
-      (l) => l.href.replace("#", "") === activeSection
-    );
+    const ids = ["about", "experience", "skills", "projects", "contact"];
+    const activeIdx = ids.indexOf(activeSection);
     if (activeIdx >= 0 && navBtnRefs.current[activeIdx] && navContainerRef.current) {
       const btn = navBtnRefs.current[activeIdx]!;
       const container = navContainerRef.current;
@@ -44,7 +43,7 @@ export function Navbar() {
     } else {
       setIndicator((prev) => ({ ...prev, opacity: 0 }));
     }
-  }, [activeSection, navLinks]);
+  }, [activeSection]);
 
   useEffect(() => {
     updateIndicator();

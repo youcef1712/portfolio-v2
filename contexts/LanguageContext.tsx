@@ -18,7 +18,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem("locale") as Locale | null;
-    if (stored === "fr" || stored === "en") setLocale(stored);
+    if (stored === "fr" || stored === "en") {
+      setLocale(stored);
+    } else {
+      const browserLang = navigator.language.slice(0, 2);
+      setLocale(browserLang === "en" ? "en" : "fr");
+    }
   }, []);
 
   const toggleLocale = () => {

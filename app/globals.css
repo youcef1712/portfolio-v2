@@ -47,6 +47,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -130,6 +131,16 @@ body {
   background-size: 24px 24px;
 }
 
+/* Animated gradient border — hover only, no mask needed */
+.gradient-border-hover {
+  position: relative;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.gradient-border-hover:hover {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 1px var(--accent), 0 0 20px color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
 /* ═══════════════════════════════
    Animations
    ═══════════════════════════════ */
@@ -180,6 +191,26 @@ body {
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes spinSlow { to { transform: rotate(360deg); } }
 
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 15%, transparent); }
+  50% { box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 25%, transparent), 0 0 60px color-mix(in srgb, var(--accent) 10%, transparent); }
+}
+
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .animate-shimmer {
   background: linear-gradient(
     90deg,
@@ -192,6 +223,29 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmer 4s linear infinite;
+}
+
+/* Smooth link transitions */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Focus visible ring */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Smooth image loading */
+img {
+  content-visibility: auto;
+}
+
+/* Selection on inputs */
+input::selection, textarea::selection {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 /* ═══════════════════════════════
@@ -275,6 +329,11 @@ body {
   footer > div > div:first-child > div:last-child > div {
     justify-content: center !important;
   }
+}
+
+/* Certifications */
+@media (max-width: 600px) {
+  .certs-grid { grid-template-columns: 1fr !important; }
 }
 
 /* Wave dividers */

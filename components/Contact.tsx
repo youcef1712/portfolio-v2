@@ -33,16 +33,13 @@ export function Contact() {
       });
 
       const data = await res.json();
-      console.log("Web3Forms response:", data);
       if (data.success) {
         setStatus("sent");
         setFormState({ name: "", email: "", message: "" });
       } else {
-        console.error("Web3Forms error:", data);
         setStatus("error");
       }
-    } catch (err) {
-      console.error("Fetch error:", err);
+    } catch {
       setStatus("error");
     }
   };

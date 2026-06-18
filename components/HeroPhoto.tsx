@@ -58,7 +58,6 @@ function AvatarPlaceholder() {
         <path d="M 10 220 Q 10 140 100 140 Q 190 140 190 220 Z" />
       </svg>
 
-      {/* Initials monogram */}
       <div
         style={{
           position: "relative",
@@ -66,57 +65,46 @@ function AvatarPlaceholder() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "10px",
+          gap: "6px",
         }}
       >
         <div
           style={{
-            width: "72px",
-            height: "72px",
+            width: "90px",
+            height: "90px",
             borderRadius: "50%",
-            background: "color-mix(in srgb, var(--accent) 12%, transparent)",
-            border: "1.5px solid color-mix(in srgb, var(--accent) 40%, transparent)",
+            background: "linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent) 5%, transparent))",
+            border: "2px solid color-mix(in srgb, var(--accent) 30%, transparent)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            boxShadow: "0 0 40px color-mix(in srgb, var(--accent) 15%, transparent), inset 0 0 20px color-mix(in srgb, var(--accent) 5%, transparent)",
           }}
         >
           <span
             style={{
-              fontSize: "26px",
+              fontSize: "32px",
               fontWeight: 800,
-              letterSpacing: "-1px",
-              color: "var(--accent)",
+              letterSpacing: "-2px",
+              background: "linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #f97316))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
           >
             YB
           </span>
         </div>
-
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-          <div
-            style={{
-              fontSize: "11px",
-              color: "var(--foreground-muted)",
-              fontWeight: 500,
-              letterSpacing: "0.5px",
-            }}
-          >
-            Ajoutez votre photo
-          </div>
-          <code
-            style={{
-              fontSize: "10px",
-              color: "var(--accent)",
-              background: "color-mix(in srgb, var(--accent) 8%, transparent)",
-              padding: "2px 8px",
-              borderRadius: "4px",
-              border: "1px solid color-mix(in srgb, var(--accent) 20%, transparent)",
-            }}
-          >
-            public/photo.png
-          </code>
-        </div>
+        <span style={{
+          fontSize: "11px",
+          fontWeight: 600,
+          letterSpacing: "3px",
+          textTransform: "uppercase",
+          color: "var(--foreground-muted)",
+          opacity: 0.6,
+        }}>
+          Developer
+        </span>
       </div>
     </div>
   );

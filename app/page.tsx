@@ -7,16 +7,21 @@ import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { WaveDivider } from "@/components/WaveDivider";
+import { Certifications } from "@/components/Certifications";
+import { BackToTop } from "@/components/BackToTop";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export default function Home() {
   return (
     <>
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />
         <About />
         <WaveDivider from="primary" to="secondary" />
         <Experience />
+        <Certifications />
         <WaveDivider from="secondary" to="primary" flip />
         <Skills />
         <WaveDivider from="primary" to="secondary" />
@@ -25,6 +30,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Youcef Bendra — Développeur Full Stack",
   description:
-    "Portfolio de Youcef Bendra, développeur Full Stack passionné. Angular, Spring Boot, Java, JavaScript et plus.",
+    "Portfolio de Youcef Bendra, développeur Full Stack passionné. Angular, Spring Boot, Java, JavaScript, TypeScript et plus.",
   keywords: [
     "Youcef Bendra",
     "développeur",
@@ -26,15 +26,34 @@ export const metadata: Metadata = {
     "portfolio",
     "Angular",
     "Spring Boot",
+    "Java",
+    "TypeScript",
     "Lyon",
+    "Grenoble",
+    "développeur web",
   ],
   authors: [{ name: "Youcef Bendra" }],
+  creator: "Youcef Bendra",
+  metadataBase: new URL("https://youcefbendra.dev"),
+  manifest: "/manifest.json",
   openGraph: {
     title: "Youcef Bendra — Développeur Full Stack",
     description:
-      "Portfolio de Youcef Bendra, développeur Full Stack passionné basé à Lyon.",
+      "Portfolio de Youcef Bendra, développeur Full Stack passionné basé à Lyon. Angular, Spring Boot, Java, TypeScript.",
     type: "website",
     locale: "fr_FR",
+    siteName: "Youcef Bendra Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Youcef Bendra — Développeur Full Stack",
+    description:
+      "Développeur Full Stack passionné basé à Lyon. Angular, Spring Boot, Java, TypeScript.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
@@ -50,6 +69,37 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Youcef Bendra",
+              jobTitle: "Développeur Full Stack",
+              url: "https://youcefbendra.dev",
+              sameAs: [
+                "https://github.com/youcef1712",
+                "https://www.linkedin.com/in/youcef-bendra-006aa5314/",
+              ],
+              email: "proetuyoucef@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Lyon",
+                addressCountry: "FR",
+              },
+              knowsAbout: [
+                "Angular",
+                "Spring Boot",
+                "Java",
+                "TypeScript",
+                "JavaScript",
+                "Docker",
+                "Git",
+              ],
+            }),
+          }}
+        />
         <ThemeProvider>
           <LanguageProvider>
             <Preloader />

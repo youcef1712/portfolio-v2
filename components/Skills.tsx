@@ -2,6 +2,16 @@
 
 import { useInView } from "@/hooks/useInView";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Code2, Cloud, Wrench } from "lucide-react";
+
+const categoryIcons: Record<string, React.ReactNode> = {
+  "Développement": <Code2 size={18} />,
+  "Development": <Code2 size={18} />,
+  "Système & Cloud": <Cloud size={18} />,
+  "System & Cloud": <Cloud size={18} />,
+  "Outils & Méthodes": <Wrench size={18} />,
+  "Tools & Methods": <Wrench size={18} />,
+};
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const { ref, inView } = useInView(0.1);
@@ -94,7 +104,9 @@ export function Skills() {
                   alignItems: "center",
                   justifyContent: "center",
                 }}>
-                  <span style={{ fontSize: "18px", color: "var(--accent)" }}>{cat.icon}</span>
+                  <span style={{ color: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {categoryIcons[cat.category] || <Code2 size={18} />}
+                  </span>
                 </div>
                 <h3 style={{ fontSize: "16px", fontWeight: 700, color: "var(--foreground)", letterSpacing: "-0.3px" }}>{cat.category}</h3>
               </div>

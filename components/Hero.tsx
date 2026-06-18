@@ -21,6 +21,7 @@ const fadeUp = (delay: number) => ({
 export function Hero() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -33,6 +34,16 @@ export function Hero() {
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!parallaxRef.current) return;
+      const scrollY = window.scrollY;
+      parallaxRef.current.style.transform = `translateY(${scrollY * 0.3}px)`;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -52,7 +63,12 @@ export function Hero() {
         "--mouse-y": "50%",
       } as React.CSSProperties}
     >
-      <div className="aurora-bg" />
+      <div ref={parallaxRef} style={{ position: "absolute", inset: 0, willChange: "transform" }}>
+        <div className="aurora-bg" />
+        <div className="dot-pattern" style={{ position: "absolute", inset: 0, opacity: 0.3, pointerEvents: "none" }} />
+        <div className="noise-overlay" />
+        <FloatingElements />
+      </div>
       <div
         style={{
           position: "absolute",
@@ -62,9 +78,6 @@ export function Hero() {
           zIndex: 1,
         }}
       />
-      <div className="dot-pattern" style={{ position: "absolute", inset: 0, opacity: 0.3, pointerEvents: "none" }} />
-      <div className="noise-overlay" />
-      <FloatingElements />
 
       <div
         className="hero-inner"
@@ -160,6 +173,7 @@ export function Hero() {
                 border: "none", fontSize: "15px", fontWeight: 600, cursor: "pointer",
                 transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
                 boxShadow: "0 4px 20px color-mix(in srgb, var(--accent) 30%, transparent)",
+                animation: "glow-pulse 3s ease-in-out infinite",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-3px) scale(1.02)";

@@ -43,6 +43,18 @@ export function TextRotator({
           {texts[index]}
         </motion.span>
       </AnimatePresence>
+      <span
+        style={{
+          display: "inline-block",
+          width: "2px",
+          height: "1em",
+          background: "var(--accent)",
+          marginLeft: "4px",
+          verticalAlign: "text-bottom",
+          animation: "blink-cursor 1s step-end infinite",
+          borderRadius: "1px",
+        }}
+      />
     </span>
   );
 }

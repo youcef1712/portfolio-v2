@@ -15,7 +15,6 @@ export const translations = {
   title: "Youcef Bendra",
   subtitle1: "Développeur Full Stack",
   sep: "×",
-  subtitle2: "Étudiant",
   description:
     "Passionné par le développement web et les nouvelles technologies, je conçois des applications modernes, performantes et intuitives. Actuellement à la recherche d’une oportunite afin de développer mes compétences sur des projets concrets.",
   cta_projects: "Voir mes projets",

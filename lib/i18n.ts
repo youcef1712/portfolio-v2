@@ -90,7 +90,7 @@ export const translations = {
             { name: "Angular", level:70 },
             { name: "Spring Boot / Maven / JPA", level: 70 },
             { name: "Java", level: 75 },
-            { name: "JavaScript / TypeScript", level: 80 },
+            { name: "JavaScript / TypeScript", level: 70 },
             { name: "C# / .NET / MonoGame", level: 70 },
             { name: "Python", level: 70 },
             { name: "PHP / MySQL / Hibernate", level: 70 },
@@ -102,7 +102,7 @@ export const translations = {
           category: "Système & Cloud",
           icon: "⬢",
           skills: [
-            { name: "Linux / Bash", level: 80 },
+            { name: "Linux / Bash", level: 75 },
             { name: "Docker / Swarm", level: 65 },
             { name: "AWS", level: 60 },
           ],

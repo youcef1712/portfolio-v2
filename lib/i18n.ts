@@ -16,7 +16,7 @@ export const translations = {
         "Développeur Full Stack",
         "Créateur d'applications",
         "Passionné de code",
-        "Architecte web",
+       
       ],
       description:
         "Passionné par le développement web et les nouvelles technologies, je conçois des applications modernes, performantes et intuitives. Curieux, autonome et motivé, je souhaite rejoindre une équipe dynamique afin de développer mes compétences sur des projets innovants et variés.",
@@ -229,7 +229,6 @@ export const translations = {
         "Full Stack Developer",
         "Application Builder",
         "Code Enthusiast",
-        "Web Architect",
       ],
       description:
         "Passionate about web development and new technologies, I design modern, performant and intuitive applications. Curious, autonomous and motivated, I want to join a dynamic team to develop my skills on innovative and varied projects.",
